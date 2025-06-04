@@ -10,36 +10,12 @@ import {
 } from "react-native";
 import { useState } from "react";
 
-interface RegisterProps {
-  email: string;
-  setEmail: (value: string) => void;
-  phone: string;
-  setPhone: (value: string) => void;
-  password: string;
-  setPassword: (value: string) => void;
-  rememberMe: boolean;
-  setRememberMe: (value: boolean) => void;
-  switchToLogin: () => void;
-}
+export default function Register() {
 
-export default function Register({
-  email,
-  setEmail,
-  phone,
-  setPhone,
-  password,
-  setPassword,
-  rememberMe,
-  setRememberMe,
-  switchToLogin,
-}: RegisterProps) {
+  const [rememberMe, setRememberMe] = useState(false);
   const handleRegister = () => {
-    if (email && phone && password) {
-      Alert.alert("Register Successful", `Welcome ${email}`);
-    } else {
-      Alert.alert("Error", "Please fill in all fields");
-    }
-  };
+    Alert.alert("Register", "Registration successful!");
+  }
 
   return (
     <SafeAreaView style={styles.containerMain}>
@@ -49,8 +25,7 @@ export default function Register({
           style={styles.txtInput}
           placeholder="Enter your email"
           keyboardType="email-address"
-          onChangeText={setEmail}
-          value={email}
+          value={""}
           autoCorrect={false}
           autoCapitalize="none"
         />
@@ -60,8 +35,6 @@ export default function Register({
           style={styles.txtInput}
           placeholder="Enter your number"
           keyboardType="phone-pad"
-          onChangeText={setPhone}
-          value={phone}
           autoCorrect={false}
           autoCapitalize="none"
         />
@@ -71,8 +44,6 @@ export default function Register({
           style={styles.txtInput}
           placeholder="Enter your password"
           secureTextEntry
-          onChangeText={setPassword}
-          value={password}
           autoCorrect={false}
           autoCapitalize="none"
         />

@@ -114,26 +114,9 @@ export default function SignIn() {
         <View style={styles.demoContainer}>
           {isLogin ? (
             <Login
-              email={email}
-              setEmail={setEmail}
-              password={password}
-              setPassword={setPassword}
-              rememberMe={rememberMe}
-              setRememberMe={setRememberMe}
-              switchToRegister={() => toggleSwitch("register")}
-              onLogin={handleLogin}
             />
           ) : (
             <Register
-              email={email}
-              setEmail={setEmail}
-              phone={phone}
-              setPhone={setPhone}
-              password={password}
-              setPassword={setPassword}
-              rememberMe={rememberMe}
-              setRememberMe={setRememberMe}
-              switchToLogin={() => toggleSwitch("login")}
             />
           )}
         </View>
@@ -143,8 +126,6 @@ export default function SignIn() {
 }
 
 // styles tetap sama
-
-
 const styles = StyleSheet.create({
   containerJudul: {
     flex: 1,
@@ -158,7 +139,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     borderTopStartRadius: 40,
     borderTopEndRadius: 40,
-    backgroundColor: "#EFEFEFFF",
+    backgroundColor: "#E9E9E9FF",
   },
   judul: {
     fontSize: 36,

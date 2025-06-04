@@ -8,26 +8,16 @@ import {
   TouchableOpacity,
   Pressable,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
-interface LoginProps {
-  email: string;
-  setEmail: (value: string) => void;
-  password: string;
-  setPassword: (value: string) => void;
-  rememberMe: boolean;
-  setRememberMe: (value: boolean) => void;
-  switchToRegister: () => void;
-  onLogin: () => void;
-}
+export default function Login() {
+  
+  const navigation = useNavigation<any>();
+  const [rememberMe, setRememberMe] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-export default function Login({
-  email,
-  setEmail,
-  password,
-  setPassword,
-  rememberMe,
-  setRememberMe,
-}: LoginProps) {
   return (
     <SafeAreaView style={styles.containerMain}>
       {/* Upper Components */}
@@ -37,10 +27,12 @@ export default function Login({
           style={styles.txtInput}
           placeholder="Enter your email"
           keyboardType="email-address"
-          onChangeText={setEmail}
-          value={email}
           autoCorrect={false}
           autoCapitalize="none"
+          value={email}
+          onChangeText={(text) => {
+            setEmail(text)
+          }}
         />
 
         <Text style={styles.label}>Password</Text>
@@ -48,9 +40,11 @@ export default function Login({
           style={styles.txtInput}
           placeholder="Enter your password"
           secureTextEntry
-          onChangeText={setPassword}
-          value={password}
           autoCorrect={false}
+          value={password}
+          onChangeText={(text) => {
+            setPassword(text)
+          }}
           autoCapitalize="none"
         />
       </View>
@@ -74,9 +68,8 @@ export default function Login({
           style={styles.viewButton}
           onPress={() => {
             if (email && password) {
-              Alert.alert("Login Successful", `Welcome ${email}`);
-            } else {
-              Alert.alert("Error", "Please fill in all fields");
+              Alert.alert("Login", `Email: ${email}\nPassword: ${password}`);
+              navigation.navigate("Home");
             }
           }}
         >
