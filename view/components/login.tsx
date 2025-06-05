@@ -68,8 +68,10 @@ export default function Login() {
           style={styles.viewButton}
           onPress={() => {
             if (email && password) {
-              Alert.alert("Login", `Email: ${email}\nPassword: ${password}`);
+              Alert.alert("Login", `Selamat Datang ${email}`);
               navigation.navigate("Home");
+            } else {
+              Alert.alert("Isi semua form dlu", "Email dan Password harus diisi");
             }
           }}
         >
