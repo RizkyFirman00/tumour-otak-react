@@ -27,6 +27,7 @@ export default function Login() {
           style={styles.txtInput}
           placeholder="Enter your email"
           keyboardType="email-address"
+          textContentType="emailAddress"
           autoCorrect={false}
           autoCapitalize="none"
           value={email}
