@@ -1,7 +1,3 @@
-Tentu, ini adalah kode Markdown untuk membuat dokumentasi GitHub (file `README.md`) yang sama persis dengan yang ada di gambar pratinjau. Anda bisa menyalin dan menempelkan kode ini langsung ke file `README.md` di repositori GitHub Anda.
-
------
-
 # TUMOUR-OTAK-REACT
 
 > A comprehensive React Native framework designed for building grade-A brain tumour detection apps.
