@@ -192,11 +192,19 @@ export default function Home() {
                 style={{
                   position: "relative",
                   alignItems: "center",
-                  marginRight:8
+                  marginRight: 8,
+                  backgroundColor: "#45B5FF",
+                  borderRadius: 8,
+                  padding: 3,
                 }}
               >
-                <Scan size={35} color="white" />
-                <Brain size={15} color="white" style={{ position: "absolute", top:10, left:10}} />
+                <Scan size={31} color="white" strokeWidth={3}/>
+                <Brain
+                  size={14}
+                  strokeWidth={2}
+                  color="white"
+                  style={{ position: "absolute", top: 11.5, left: 11.5 }}
+                />
               </View>
               <Text style={styles.title}>Scan Tumor</Text>
             </TouchableOpacity>
