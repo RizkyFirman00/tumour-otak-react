@@ -6,15 +6,21 @@ import {
   SafeAreaView,
   Alert,
   TouchableOpacity,
-  Pressable,
 } from "react-native";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+
 
 export default function Register() {
 
+  const Navigation = useNavigation<any>();
   const [rememberMe, setRememberMe] = useState(false);
   const handleRegister = () => {
     Alert.alert("Register", "Registration successful!");
+    Navigation.navigate("SingIn");
+  }
+  const handleForgotPassword = () => {
+    Navigation.navigate("ForgotPassword");
   }
 
   return (
@@ -54,13 +60,15 @@ export default function Register() {
         {/* Remember Me */}
         <View style={styles.rowBetween}>
           <View style={styles.row}>
-            <Pressable
+            <TouchableOpacity
               style={[styles.checkbox, rememberMe && styles.checkboxChecked]}
               onPress={() => setRememberMe(!rememberMe)}
             />
             <Text style={styles.rememberText}>Remember Me</Text>
           </View>
-          <Text style={styles.txtForgot}>Forgot Password?</Text>
+          <TouchableOpacity onPress={handleForgotPassword}>
+            <Text style={styles.txtForgot}>Forgot Password?</Text>
+          </TouchableOpacity>
         </View>
 
         {/* Register Button */}

@@ -4,6 +4,7 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import {
   Brain,
@@ -91,9 +92,24 @@ export default function Home() {
                 <Text style={styles.title}>Tumor Otak</Text>
                 <Text style={styles.subtitle}>AI Brain Tumor Detection</Text>
               </View>
-              <View style={styles.shapeCircleSmall}>
-                <LogOut size={20} color="#FFFFFF" strokeWidth={3} />
-              </View>
+              <TouchableOpacity onPress={() => 
+                Alert.alert("Logout", "Beneran mau logout?", [
+                  {
+                    text: "Batal",
+                    style: "cancel",
+                  },
+                  {
+                    text: "Ya",
+                    onPress: () => {
+                      Alert.alert("Berhasil", "Anda telah logout.");
+                      navigation.navigate("SignIn");
+                    },
+                  },
+                ])}>
+                <View style={styles.shapeCircleSmall}>
+                  <LogOut size={20} color="#FFFFFF" strokeWidth={3} />
+                </View>
+              </TouchableOpacity>
             </View>
             <View style={styles.headbar2}>
               <View style={styles.infoColumn}>
@@ -188,7 +204,7 @@ export default function Home() {
           />
           <View style={styles.container}>
             <TouchableOpacity style={styles.button}>
-              <View
+              <View    
                 style={{
                   position: "relative",
                   alignItems: "center",

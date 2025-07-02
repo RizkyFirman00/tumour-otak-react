@@ -61,7 +61,10 @@ export default function Login() {
             />
             <Text style={styles.rememberText}>Remember Me</Text>
           </View>
-          <Text style={styles.txtForgot}>Forgot Password?</Text>
+          {/* Forgot Password */}
+          <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")}>
+            <Text style={styles.txtForgot}>Forgot Password?</Text>
+          </TouchableOpacity>
         </View>
 
         {/* Button Login */}
